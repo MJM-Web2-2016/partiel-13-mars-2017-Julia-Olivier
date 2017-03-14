@@ -41,15 +41,20 @@
 		</div>
 	</div>
 
-	<div data-toggler data-animate="fade-in fade-out" class="callout ease" id="search-bar" aria-expanded="true" style="display: none;">
-		<div class="row">
-			<div class="columns">
-				<form role="search" method="get" id="searchform" action="http://localhost:8888/fp-ca-beta/">
-					<input type="text" value="" name="s" id="s" placeholder="Rechercher...">
-				</form>
-			</div>
-			<div class="shrink columns">
-				<a><i data-toggle="search-bar" aria-controls="search-bar" class="fa fa-times"></i></a>
+
+	<div class="row">
+		<div class="small-12 columns">
+			<div data-toggler data-animate="fade-in fade-out" class="callout ease" id="search-bar" aria-expanded="true" style="display: none;">
+				<div class="row">
+					<div class="columns">
+						<form role="search" method="get" id="searchform" action="http://localhost:8888/fp-ca-beta/">
+							<input type="text" value="" name="s" id="s" placeholder="Rechercher...">
+						</form>
+					</div>
+					<div class="shrink columns">
+						<a><i data-toggle="search-bar" aria-controls="search-bar" class="close fa fa-times"></i></a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

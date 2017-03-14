@@ -26,3 +26,22 @@
     color: get-color(primary);
   }
 }
+
+.callout {
+  background: #313336;
+  border:0;
+  height:50px;
+  line-height: 50px;
+  padding: 0 1rem;
+  input, input:focus {
+    height: 50px;
+    background: transparent;
+    border:0;
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+  .close {
+    color:#ffffff;
+    padding: 0 0.5rem;
+  }
+}
