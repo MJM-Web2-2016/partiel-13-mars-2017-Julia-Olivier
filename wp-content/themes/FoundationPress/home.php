@@ -17,33 +17,37 @@ get_header(); ?>
 
 <div id="page-full-width" role="main">
 
-	<div class="row">
+	<section id="programme">
+		<div class="row">
 
-		<div class="small-12 medium-4 large-offset-1 large-3 columns">
-			<h2>Programme</h2>
-			<p>Retrouvez le programme de la 33e édition du festival.</p>
-			<a class="hollow button" href="#">Voir tout</a>
-			<button class="dropdown hollow button">Catégorie</button>
+			<div class="small-12 large-offset-1 large-3 columns">
+				<div class="section-title">
+					<h2>Programme</h2>
+					<p>Retrouvez le programme de la 33e édition du festival.</p>
+					<a class="hollow button" href="#">Voir tout</a>
+					<button class="dropdown hollow button">Catégorie</button>
+				</div>
+			</div>
+
+			<div class="small-12 large-8 columns">
+
+				<?php if ( have_posts() ) :
+							query_posts( array( 'cat' => array(4,5), 'posts_per_page' => 3 ) );
+				?>
+
+				<?php /* Start the Loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+				<?php endwhile; ?>
+
+				<?php else : ?>
+					<?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+				<?php endif; // End have_posts() check. ?>
+
+			</div>
 		</div>
-
-		<div class="small-12 medium-8 columns">
-
-			<?php if ( have_posts() ) :
-						query_posts( array( 'cat' => array(4,5), 'posts_per_page' => 3 ) );
-			?>
-
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-			<?php endwhile; ?>
-
-			<?php else : ?>
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-			<?php endif; // End have_posts() check. ?>
-
-		</div>
-	</div>
+	</section>
 
 	<div class="row">
 		<div class="small-12 columns">
@@ -56,40 +60,45 @@ get_header(); ?>
 		</div>
 	</div>
 
-	<div class="row">
+	<section id="billetterie">
+		<div class="row">
 
-		<div class="small-12  medium-4 large-offset-1 large-3 columns">
-			<h2>Billetterie</h2>
-			<p>La billetterie comprend les abonnements mais aussi les tickets individuels.</p>
-			<a class="hollow button" href="#">Voir tout</a>
-		</div>
+			<div class="small-12 large-offset-1 large-3 columns">
+				<div class="section-title">
+					<h2>Billetterie</h2>
+					<p>La billetterie comprend les abonnements mais aussi les tickets individuels.</p>
+					<a class="hollow button" href="#">Voir tout</a>
+				</div>
+			</div>
 
-		<div class="small-12 medium-8 columns">
+			<div class="small-12 large-8 columns">
 
-			<div class="row">
+				<div class="row">
 
-				<?php if ( have_posts() ) :
-							query_posts( array( 'cat' => array(6), 'posts_per_page' => 4 ) );
-				?>
+					<?php if ( have_posts() ) :
+								query_posts( array( 'cat' => array(6), 'posts_per_page' => 4 ) );
+					?>
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-						<?php get_template_part( 'template-parts/card-pass', get_post_format() ); ?>
-				<?php endwhile; ?>
+					<?php /* Start the Loop */ ?>
+					<?php while ( have_posts() ) : the_post(); ?>
+							<?php get_template_part( 'template-parts/card-pass', get_post_format() ); ?>
+					<?php endwhile; ?>
 
-				<?php else : ?>
-					<?php get_template_part( 'template-parts/content', 'none' ); ?>
+					<?php else : ?>
+						<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-				<?php endif; // End have_posts() check. ?>
+					<?php endif; // End have_posts() check. ?>
+
+				</div>
 
 			</div>
 
 		</div>
-	</div>
+	</section>
 
 	<div class="row">
 
-		<div class="small-12 medium-4 columns">
+		<div class="small-12 large-4 columns">
 			<div class="card">
 				<section class="card-section">
 					<h2>Informations pratiques</h2>
@@ -98,13 +107,13 @@ get_header(); ?>
 			</div>
 		</div>
 
-		<div class="small-12 medium-4 columns">
+		<div class="small-12 medium-6 large-4 columns">
 			<h2>Découvrir</h2>
 			<p>Découvrez notre catalogue de tous les labels Vand’œuvre depuis 1985.</p>
 			<a class="hollow button" href="#">Tous les labels</a>
 		</div>
 
-		<div class="small-12 medium-4 columns">
+		<div class="small-12 medium-6 large-4 columns">
 			<div class="card">
 				<section class="card-section">
 					<img src="http://placehold.it/360x150">
