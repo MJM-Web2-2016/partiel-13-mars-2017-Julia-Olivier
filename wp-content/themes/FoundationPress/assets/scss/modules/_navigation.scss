@@ -1,11 +1,11 @@
 // Navigation breakpoints
-.desktop-menu, .top-bar-left {
+/*.desktop-menu, .top-bar-left {
   @include show-for(medium);
 }
 
 #mobile-menu, .title-bar {
   @include hide-for(medium);
-}
+}*/
 
 // Mobile menu
 .off-canvas {
@@ -45,6 +45,15 @@
   a {
     font-size: 1rem;
     color: #B9B9B9;
+  }
+}
+
+.title-bar {
+  height: 60px;
+  #logo {
+    position: relative;
+    left: 50%;
+    margin-left: -114.5px;
   }
 }
 
